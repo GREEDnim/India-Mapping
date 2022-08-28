@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INDIA IMAGE MAPPING</title>
+	<script >
+		document.onmousemove=function(e)
+		{co.innerHTML=e.clientX+" "+e.clientY;}
+		
+		function changedesc(state,area,cm)
+		{
+			document.getElementById("state-desc-container").innerHTML=`<p>the state you clicked is ${state}</p>
+			<img width="250px" height="250px" src="./${state}.jpg">
+			<p>${state}'s area is : ${area} square kilometeres</p>
+			<p>${state}'s ChiefMinister is : ${cm}</p>`;
+		}
+	</script>
+	<style>
+		body{
+			margin: 0;
+			padding:0;
+		}
+	.container
+	{
+		display:flex;
+	}
+	.right
+	{
+		width:100%;
+		font-size: x-large;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: red;
+		color:white;
+	}
+	#co
+	{
+		position: absolute;
+		top:20px;
+		left:20px;
+		background-color: red;
+		color:white;
+	}
+	#state-desc-container
+	{
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
+	</style>
+  </head>
+  <body>
+
+	<section class="container">
+		<section class="left">
+			<img src="./in.png" alt="india-map" usemap="#workmap" width="650px" height="650px">
+			<div id="co" ></div>
+		</section>
+		<section class="right">
+			<div id="state-desc-container">
+
+			</div>
+		</section>
+	</section>
+	
+	<map name="workmap">
+	<area shape="rect" coords="237,499,288,595" alt="Coffee" onclick="changedesc('tamilnadu',130,'M. K. Stalin')">
+	<area shape="rect" coords="181,439,234,524" alt="Coffee"  onclick="changedesc('karnataka',191,'Basavaraj Bommai')">
+	<area shape="rect" coords="191,553,230,607" alt="Coffee" onclick="changedesc('kerala',38,'Pinarayi Vijayan')" >
+	<area shape="poly" coords="375,388,355,389,257,453,234,453,269,501,286,452,358,406" onclick="changedesc('AndhraPradesh',160,'Y. S. Jagan Mohan Reddy')">	  
+	<area shape="poly" coords="256,376,316,416,246,451"  onclick="changedesc('telangana',112,'Kalvakuntla Chandrasekhar Rao')">
+	<area shape="poly" coords="316,398,321,385,315,366,353,318,390,315,408,348,359,382"  onclick="changedesc('Odisha',155,'Naveen Patnaik')">
+	<area shape="poly" coords="165,446,248,369,292,378,287,336,172,330"  onclick="changedesc('Maharashtra',307,'Eknath Shinde')">
+	<area shape="poly" coords="176,299,243,230,175,177,108,233"  onclick="changedesc('Rajasthan',342,'Ashok Gehlot')">
+	<area shape="poly" coords="171,111,264,119,284,62,166,48"  onclick="changedesc('JammuAndKashmir',42,'no chief minister')">
+	<area shape="poly" coords="242,176,348,230,344,288,264,261,267,238,240,240"  onclick="changedesc('UttarPradesh',240,'Yogi Adityanath')">
+	</map>
+  
+  </body>
+</html>
